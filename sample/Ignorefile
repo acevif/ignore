@@ -1,0 +1,11 @@
+gitignore.io:
+    - Ruby
+    - direnv
+    
+github:
+    - Python
+
+paths-ignore:
+    - "foo"
+    - "bar"
+    - "!baz"
