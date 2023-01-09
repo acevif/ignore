@@ -33,5 +33,6 @@ echo "### Project specific settings ###" >> .gitignore
 echo "" >> .gitignore
 
 for target in "${(@f)$(yq '.paths-ignore[]' Ignorefile)}"
+do
     echo $target >> .gitignore
 done
