@@ -14,6 +14,10 @@ brew install acevif/tap/ignore
 * Use the shell implementation as the behavioral reference while Rust stabilizes.
 * Add Rust tests that describe expected CLI output and error cases before coding.
 
+### Ideas
+
+* `ignore add github rust`: append `Rust` to the `github` list in `Ignorefile`, then regenerate `.gitignore`.
+
 ### Rust Development Guidelines
 
 * Twada-style TDD: start with a failing test, implement the minimum to pass, then refactor.
