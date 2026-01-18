@@ -14,6 +14,16 @@ brew install acevif/tap/ignore
 * Use the shell implementation as the behavioral reference while Rust stabilizes.
 * Add Rust tests that describe expected CLI output and error cases before coding.
 
+### YAML crates (`Ignorefile`)
+
+`Ignorefile` is a YAML file. For Rust, our current choices are:
+
+* Read/parse: `serde` + [`serde_norway`](https://crates.io/crates/serde_norway) (a maintained alternative to [`serde_yaml`](https://docs.rs/crate/serde_yaml/latest); see RustSec advisory for [`serde_yml`](https://rustsec.org/advisories/RUSTSEC-2025-0068.html))
+* Writing/updating: TBD (requires a lossless editor that preserves comments, ordering, and formatting; evaluate `yaml_edit` / `yamlpatch` when implementing commands that update `Ignorefile` (e.g. `ignore add github rust`))
+
+> [!WARNING]
+> Avoid deprecated/unmaintained crates: [`serde_yaml`](https://docs.rs/crate/serde_yaml/latest), [`serde_yml`](https://rustsec.org/advisories/RUSTSEC-2025-0068.html), [`yaml-rust`](https://rustsec.org/advisories/RUSTSEC-2024-0320.html).
+
 ### Ideas
 
 * `ignore add github rust`: append `Rust` to the `github` list in `Ignorefile`, then regenerate `.gitignore`.
