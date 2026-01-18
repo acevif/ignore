@@ -17,7 +17,7 @@ brew install acevif/tap/ignore
 ### Rust Development Guidelines
 
 * Twada-style TDD: start with a failing test, implement the minimum to pass, then refactor.
-* Commit message rules:
+* Commit message rules (for commits that land on `main`):
   - MUST: [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) ([日本語版 v1.0.0](https://www.conventionalcommits.org/ja/v1.0.0/))
   - SHOULD: [Chris Beams: How to Write a Git Commit Message](https://cbea.ms/git-commit/) (especially "what" and "why")
   - SHOULD: In addition to "what" and "why", include "Impact"
