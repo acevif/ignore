@@ -21,3 +21,6 @@ brew install acevif/tap/ignore
   - MUST: [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) ([日本語版 v1.0.0](https://www.conventionalcommits.org/ja/v1.0.0/))
   - SHOULD: [Chris Beams: How to Write a Git Commit Message](https://cbea.ms/git-commit/) (especially "what" and "why")
   - SHOULD: In addition to "what" and "why", include "Impact"
+* Pull request rules:
+  - MUST: Make all changes via Pull Requests; direct pushes to `main` are not allowed
+  - MUST: Squash merge PRs to keep a linear history on `main` (one commit per PR)
