@@ -1,0 +1,3 @@
+[env]
+# Copy `mise.local.toml.example` to `mise.local.toml` and edit.
+CODEX_HOME = "/path/to/ignore/.codex"

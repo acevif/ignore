@@ -1,0 +1,5 @@
+paths-ignore:
+    # NOTE: Keep this section even if you only need a few local-only ignores.
+    - ".codex/"
+    - ".claude/"
+    - "mise.local.toml"

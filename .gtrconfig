@@ -1,0 +1,12 @@
+# git-worktree-runner team configuration
+# https://github.com/coderabbitai/git-worktree-runner
+
+[hooks]
+    # mise: Symlink mise.local.toml (expected to exist, but do not fail if missing)
+    postCreate = "ln -s \"$REPO_ROOT/mise.local.toml\" \"$WORKTREE_PATH/mise.local.toml\" || true"
+
+    # Codex: Symlink .codex directory (expected to exist, but do not fail if missing)
+    postCreate = "ln -s \"$REPO_ROOT/.codex\" \"$WORKTREE_PATH/.codex\" || true"
+
+    # Claude: Symlink .claude directory (expected to exist, but do not fail if missing)
+    postCreate = "ln -s \"$REPO_ROOT/.claude\" \"$WORKTREE_PATH/.claude\" || true"
