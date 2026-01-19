@@ -1,4 +1,5 @@
 sandbox_mode = "workspace-write"
+hide_agent_reasoning = true
 
 [shell_environment_policy]
 inherit = "all"
