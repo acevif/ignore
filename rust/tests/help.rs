@@ -1,4 +1,4 @@
-const EXPECTED_HELP: &str = "Usage: ignore [<command>]\n\nCommands:\n  help     Show this help message\n  version  Show version information\n\nOptions:\n  -h, --help  Show this help message\n  --version   Show version information\n";
+const EXPECTED_HELP: &str = "Usage: ignore [<command>]\n\nCommands:\n  help     Show this help message\n  update   Generate .gitignore from Ignorefile\n  version  Show version information\n\nOptions:\n  -h, --help  Show this help message\n  --version   Show version information\n";
 
 #[test]
 fn prints_help() {

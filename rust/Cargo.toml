@@ -10,3 +10,12 @@ name = "ignore"
 path = "src/main.rs"
 
 [dependencies]
+async-trait = "0.1.89"
+futures = "0.3.31"
+reqwest = { version = "=0.12.4", default-features = false, features = ["rustls-tls-webpki-roots", "charset"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_norway = "=0.9.39"
+tokio = { version = "=1.47.3", features = ["macros", "rt-multi-thread", "time"] }
+
+[dev-dependencies]
+tempfile = "=3.9.0"
