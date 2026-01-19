@@ -1,6 +1,67 @@
 mod cli;
 
 use ignore_rs::{generate_gitignore, parse_ignorefile, ReqwestGitignoreSource, SerdeNorwayIgnorefileParser};
+use std::io::Write;
+use std::path::{Path, PathBuf};
+
+fn resolve_symlink_target(mut path: PathBuf) -> Result<PathBuf, String> {
+    for _ in 0..8 {
+        let meta = match std::fs::symlink_metadata(&path) {
+            Ok(meta) => meta,
+            Err(e) if e.kind() == std::io::ErrorKind::NotFound => return Ok(path),
+            Err(e) => return Err(format!("failed to stat {}: {e}", path.display())),
+        };
+
+        if !meta.file_type().is_symlink() {
+            return Ok(path);
+        }
+
+        let link = std::fs::read_link(&path)
+            .map_err(|e| format!("failed to read symlink {}: {e}", path.display()))?;
+
+        let base = path
+            .parent()
+            .ok_or_else(|| format!("symlink has no parent directory: {}", path.display()))?;
+
+        path = if link.is_absolute() {
+            link
+        } else {
+            base.join(link)
+        };
+    }
+
+    Err("symlink chain too deep (possible loop)".to_string())
+}
+
+fn write_file_atomically(path: &Path, contents: &str) -> Result<(), String> {
+    let target = resolve_symlink_target(path.to_path_buf())?;
+
+    let parent = target
+        .parent()
+        .ok_or_else(|| format!("target path has no parent: {}", target.display()))?;
+
+    let mut temp = tempfile::NamedTempFile::new_in(parent)
+        .map_err(|e| format!("failed to create temp file in {}: {e}", parent.display()))?;
+
+    temp.as_file_mut()
+        .write_all(contents.as_bytes())
+        .map_err(|e| format!("failed to write temp file: {e}"))?;
+    temp.as_file()
+        .sync_all()
+        .map_err(|e| format!("failed to fsync temp file: {e}"))?;
+
+    temp.persist(&target)
+        .map_err(|e| format!("failed to replace {}: {}", target.display(), e.error))?;
+
+    #[cfg(unix)]
+    {
+        if let Ok(dir) = std::fs::File::open(parent) {
+            let _ = dir.sync_all();
+        }
+    }
+
+    Ok(())
+}
 
 async fn run_update() -> Result<(), String> {
     let ignorefile_path = std::path::Path::new("Ignorefile");
@@ -15,16 +76,9 @@ async fn run_update() -> Result<(), String> {
         .await
         .map_err(|e| e.to_string())?;
 
-    // TODO: Write `.gitignore` atomically (temp file next to the target, write+fsync, then
-    // replace/rename). This is the common best practice (e.g. Git's lockfile + rename workflow),
-    // but it swaps the inode and therefore breaks hard links. There is no general way to update
-    // an inode "in place" atomically, so either accept/declare that hard links are not supported,
-    // or choose a different (non-atomic) strategy with locking.
-    //
-    // Implementation candidates: `tempfile::NamedTempFile::new_in(".")` + `persist`, or an atomic
-    // write crate (keep MSRV/rustc 1.70 constraints in mind).
-    std::fs::write(".gitignore", generated)
-        .map_err(|e| format!("failed to write .gitignore: {e}"))?;
+    // NOTE: Atomic replacement swaps the inode and therefore breaks hard links. This is an
+    // acceptable trade-off, but we preserve symlinks by writing to the resolved target path.
+    write_file_atomically(std::path::Path::new(".gitignore"), &generated)?;
     Ok(())
 }
 

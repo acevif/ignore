@@ -108,20 +108,12 @@ fn update_does_not_clobber_existing_gitignore_when_write_fails() {
     let original = "# keep\n";
     std::fs::write(&gitignore_path, original).expect("write existing .gitignore");
 
-    let mut perms = std::fs::metadata(&gitignore_path)
-        .expect("stat existing .gitignore")
+    let mut perms = std::fs::metadata(dir.path())
+        .expect("stat temp dir")
         .permissions();
-    perms.set_mode(0o444);
-    std::fs::set_permissions(&gitignore_path, perms).expect("make .gitignore read-only");
-
-    assert!(
-        std::fs::OpenOptions::new()
-            .write(true)
-            .truncate(true)
-            .open(&gitignore_path)
-            .is_err(),
-        "precondition: expected .gitignore to be unwritable"
-    );
+    let original_mode = perms.mode();
+    perms.set_mode(0o555);
+    std::fs::set_permissions(dir.path(), perms).expect("make temp dir read-only");
 
     let output = Command::new(env!("CARGO_BIN_EXE_ignore"))
         .arg("update")
@@ -137,6 +129,48 @@ fn update_does_not_clobber_existing_gitignore_when_write_fails() {
         String::from_utf8_lossy(&output.stderr),
     );
 
+    let mut perms = std::fs::metadata(dir.path())
+        .expect("stat temp dir")
+        .permissions();
+    perms.set_mode(original_mode);
+    std::fs::set_permissions(dir.path(), perms).expect("restore temp dir permissions");
+
     let after = std::fs::read_to_string(&gitignore_path).expect("read .gitignore after failure");
     assert_eq!(after, original);
+}
+
+#[test]
+#[cfg(unix)]
+fn update_preserves_gitignore_symlink() {
+    use std::os::unix::fs::symlink;
+
+    let dir = tempfile::tempdir().expect("create temp dir");
+
+    std::fs::write(dir.path().join("Ignorefile"), IGNOREFILE_PATHS_ONLY).expect("write Ignorefile");
+
+    let target_path = dir.path().join("linked.gitignore");
+    std::fs::write(&target_path, "# old\n").expect("write linked.gitignore");
+
+    symlink("linked.gitignore", dir.path().join(".gitignore")).expect("create .gitignore symlink");
+
+    let output = Command::new(env!("CARGO_BIN_EXE_ignore"))
+        .arg("update")
+        .current_dir(dir.path())
+        .output()
+        .expect("run ignore update");
+
+    assert!(
+        output.status.success(),
+        "status={}\nstdout:\n{}\nstderr:\n{}",
+        output.status,
+        String::from_utf8_lossy(&output.stdout),
+        String::from_utf8_lossy(&output.stderr),
+    );
+
+    let meta = std::fs::symlink_metadata(dir.path().join(".gitignore"))
+        .expect("stat .gitignore");
+    assert!(meta.file_type().is_symlink(), ".gitignore is not a symlink");
+
+    let generated = std::fs::read_to_string(&target_path).expect("read linked.gitignore");
+    assert_eq!(generated, EXPECTED_GITIGNORE_PATHS_ONLY);
 }
