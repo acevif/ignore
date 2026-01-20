@@ -3,9 +3,15 @@ prefix_rule(pattern=["git", "diff"], decision="allow")
 prefix_rule(pattern=["git", "log"], decision="allow")
 prefix_rule(pattern=["git", "show"], decision="allow")
 prefix_rule(
-    pattern=["git", "branch", "-D"],
+    pattern=["git", "branch", ["-d", "--delete", "-D"]],
     decision="prompt",
     justification="Require confirmation before deleting local branches",
+    match=[
+        "git branch -d foo",
+        "git branch -D foo",
+        "git branch --delete foo",
+        "git branch --delete --force foo",
+    ],
 )
 prefix_rule(pattern=["git", "branch"], decision="allow")
 prefix_rule(pattern=["git", "switch", "-c"], decision="allow")
