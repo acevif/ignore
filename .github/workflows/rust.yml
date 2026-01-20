@@ -9,6 +9,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
+      - name: Check formatting
+        working-directory: rust
+        run: cargo fmt --check
+      - name: Run clippy
+        working-directory: rust
+        run: cargo clippy --all-targets --all-features -- -D warnings
       - name: Run tests
         working-directory: rust
         run: cargo test
