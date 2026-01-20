@@ -1,5 +1,6 @@
 paths-ignore:
     # NOTE: Keep this section even if you only need a few local-only ignores.
+    # NOTE: Codex does not yet assume repo-managed config, so keep .codex/ ignored.
     - ".codex/"
-    - ".claude/"
+    - ".claude/settings.local.json"
     - "mise.local.toml"

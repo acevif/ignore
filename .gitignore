@@ -5,5 +5,5 @@
 ### Project specific settings ###
 
 .codex/
-.claude/
+.claude/settings.local.json
 mise.local.toml

@@ -1,0 +1,23 @@
+sandbox_mode = "workspace-write"
+hide_agent_reasoning = true
+
+[shell_environment_policy]
+inherit = "all"
+
+[sandbox_workspace_write]
+exclude_tmpdir_env_var = false  # allow $TMPDIR
+exclude_slash_tmp = false       # allow /tmp
+writable_roots = [
+  "/path/to/ignore",
+  # WORKAROUND: Codex sandbox may still block worktree index locks unless .git is
+  # explicitly writable (see https://github.com/openai/codex/issues/5034#issuecomment-3392041253).
+  "/path/to/ignore/.git",
+  "/path/to/.cargo",
+]
+network_access = true
+
+[features]
+shell_snapshot = true
+steer = true
+web_search_request = true
+unified_exec = true

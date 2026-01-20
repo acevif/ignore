@@ -11,20 +11,3 @@ prefix_rule(
     decision="deny",
     justification="Use trash instead of rm",
 )
-
-
-
-prefix_rule(pattern=["ignore"], decision="allow")
-prefix_rule(pattern=["./ignore"], decision="allow")
-prefix_rule(pattern=["shell/ignore"], decision="allow")
-
-prefix_rule(
-    pattern = ["fastlane", "tests"],
-    decision = "allow",
-    justification = "Allow fastlane tests to run outside the sandbox",
-    match = [
-        "fastlane tests",
-    ],
-)
-
-prefix_rule(pattern=["mise", "trust"], decision="allow")
