@@ -11,7 +11,9 @@ jobs:
       RUSTFLAGS: "-Dwarnings"
     steps:
       - uses: actions/checkout@v6
-      - uses: dtolnay/rust-toolchain@master
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: rust
       - name: Check formatting
         working-directory: rust
         run: cargo fmt --check
