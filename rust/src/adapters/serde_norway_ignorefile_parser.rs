@@ -30,8 +30,8 @@ impl From<IgnorefileYaml> for IgnoreConfig {
 
 impl IgnorefileParser for SerdeNorwayIgnorefileParser {
     fn parse<R: Read>(&self, reader: R) -> Result<IgnoreConfig, IgnorefileParseError> {
-        let parsed: IgnorefileYaml =
-            serde_norway::from_reader(reader).map_err(|e| IgnorefileParseError::new(e.to_string()))?;
+        let parsed: IgnorefileYaml = serde_norway::from_reader(reader)
+            .map_err(|e| IgnorefileParseError::new(e.to_string()))?;
         Ok(parsed.into())
     }
 }

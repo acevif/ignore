@@ -1,6 +1,8 @@
 mod cli;
 
-use ignore_rs::{generate_gitignore, parse_ignorefile, ReqwestGitignoreSource, SerdeNorwayIgnorefileParser};
+use ignore_rs::{
+    generate_gitignore, parse_ignorefile, ReqwestGitignoreSource, SerdeNorwayIgnorefileParser,
+};
 use std::io::Write;
 use std::path::{Path, PathBuf};
 

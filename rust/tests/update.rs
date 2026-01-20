@@ -92,7 +92,10 @@ fn update_fails_when_ignorefile_missing() {
     assert!(!dir.path().join(".gitignore").exists());
 
     let stderr = String::from_utf8_lossy(&output.stderr);
-    assert!(stderr.contains("Ignorefile"), "stderr did not mention Ignorefile");
+    assert!(
+        stderr.contains("Ignorefile"),
+        "stderr did not mention Ignorefile"
+    );
 }
 
 #[test]
@@ -167,8 +170,7 @@ fn update_preserves_gitignore_symlink() {
         String::from_utf8_lossy(&output.stderr),
     );
 
-    let meta = std::fs::symlink_metadata(dir.path().join(".gitignore"))
-        .expect("stat .gitignore");
+    let meta = std::fs::symlink_metadata(dir.path().join(".gitignore")).expect("stat .gitignore");
     assert!(meta.file_type().is_symlink(), ".gitignore is not a symlink");
 
     let generated = std::fs::read_to_string(&target_path).expect("read linked.gitignore");

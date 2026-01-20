@@ -14,7 +14,9 @@ pub fn resolve(args: &[String]) -> Action {
         return Action::Help;
     }
 
-    let is_version = args.iter().any(|arg| arg == "version" || arg == "--version");
+    let is_version = args
+        .iter()
+        .any(|arg| arg == "version" || arg == "--version");
     if is_version {
         return Action::Version;
     }
@@ -36,4 +38,3 @@ mod tests {
         assert_eq!(resolve(&args), Action::Update);
     }
 }
-

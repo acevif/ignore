@@ -73,11 +73,9 @@ impl GitignoreSource for ReqwestGitignoreSource {
         &self,
         target: &str,
     ) -> Result<GitignoreSourceResponse, GitignoreSourceError> {
-        let url = format!(
-            "https://raw.githubusercontent.com/github/gitignore/main/{target}.gitignore"
-        );
+        let url =
+            format!("https://raw.githubusercontent.com/github/gitignore/main/{target}.gitignore");
         let content = self.get_text(&url).await?;
         Ok(GitignoreSourceResponse { url, content })
     }
 }
-
