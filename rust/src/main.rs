@@ -70,7 +70,7 @@ async fn run_update() -> Result<(), String> {
     let ignorefile = std::fs::File::open(ignorefile_path)
         .map_err(|e| format!("failed to read Ignorefile: {e}"))?;
 
-    let parser = SerdeNorwayIgnorefileParser::default();
+    let parser = SerdeNorwayIgnorefileParser;
     let config = parse_ignorefile(&parser, ignorefile).map_err(|e| e.to_string())?;
 
     let source = ReqwestGitignoreSource::new();
