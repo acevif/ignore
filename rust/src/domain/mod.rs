@@ -1,3 +1,3 @@
-pub mod ignorefile;
+pub mod ignore_config;
 
-pub use ignorefile::Ignorefile;
+pub use ignore_config::IgnoreConfig;

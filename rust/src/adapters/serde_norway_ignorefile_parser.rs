@@ -1,4 +1,4 @@
-use crate::domain::Ignorefile;
+use crate::domain::IgnoreConfig;
 use crate::ports::{IgnorefileParseError, IgnorefileParser};
 use serde::Deserialize;
 use std::io::Read;
@@ -18,7 +18,7 @@ struct IgnorefileYaml {
     paths_ignore: Vec<String>,
 }
 
-impl From<IgnorefileYaml> for Ignorefile {
+impl From<IgnorefileYaml> for IgnoreConfig {
     fn from(value: IgnorefileYaml) -> Self {
         Self {
             gitignore_io: value.gitignore_io,
@@ -29,7 +29,7 @@ impl From<IgnorefileYaml> for Ignorefile {
 }
 
 impl IgnorefileParser for SerdeNorwayIgnorefileParser {
-    fn parse<R: Read>(&self, reader: R) -> Result<Ignorefile, IgnorefileParseError> {
+    fn parse<R: Read>(&self, reader: R) -> Result<IgnoreConfig, IgnorefileParseError> {
         let parsed: IgnorefileYaml =
             serde_norway::from_reader(reader).map_err(|e| IgnorefileParseError::new(e.to_string()))?;
         Ok(parsed.into())
@@ -60,7 +60,7 @@ paths-ignore:
 
         assert_eq!(
             parsed,
-            Ignorefile {
+            IgnoreConfig {
                 gitignore_io: vec!["Ruby".to_string(), "direnv".to_string()],
                 github: vec!["Python".to_string()],
                 paths_ignore: vec!["foo".to_string(), "bar".to_string(), "!baz".to_string()],

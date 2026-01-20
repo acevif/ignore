@@ -1,4 +1,4 @@
-use crate::domain::Ignorefile;
+use crate::domain::IgnoreConfig;
 use crate::ports::GitignoreSource;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -29,7 +29,7 @@ fn push_blank_lines(output: &mut String, count: usize) {
 }
 
 pub async fn generate_gitignore<S: GitignoreSource>(
-    config: &Ignorefile,
+    config: &IgnoreConfig,
     source: &S,
 ) -> Result<String, GenerateGitignoreError> {
     let mut output = String::new();
@@ -121,7 +121,7 @@ mod tests {
 
     #[tokio::test]
     async fn generates_gitignore_without_network_access() {
-        let config = Ignorefile {
+        let config = IgnoreConfig {
             gitignore_io: vec!["Ruby".to_string(), "direnv".to_string()],
             github: vec!["Python".to_string()],
             paths_ignore: vec!["foo".to_string(), "bar".to_string(), "!baz".to_string()],

@@ -1,4 +1,4 @@
-use crate::domain::Ignorefile;
+use crate::domain::IgnoreConfig;
 use std::io::Read;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -23,12 +23,12 @@ impl std::fmt::Display for IgnorefileParseError {
 impl std::error::Error for IgnorefileParseError {}
 
 pub trait IgnorefileParser {
-    fn parse<R: Read>(&self, reader: R) -> Result<Ignorefile, IgnorefileParseError>;
+    fn parse<R: Read>(&self, reader: R) -> Result<IgnoreConfig, IgnorefileParseError>;
 }
 
 pub fn parse_ignorefile<P: IgnorefileParser, R: Read>(
     parser: &P,
     reader: R,
-) -> Result<Ignorefile, IgnorefileParseError> {
+) -> Result<IgnoreConfig, IgnorefileParseError> {
     parser.parse(reader)
 }
