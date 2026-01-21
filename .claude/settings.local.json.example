@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "/path/to/homebrew-tap"
+    ]
+  }
+}

@@ -12,6 +12,10 @@ writable_roots = [
   # WORKAROUND: Codex sandbox may still block worktree index locks unless .git is
   # explicitly writable (see https://github.com/openai/codex/issues/5034#issuecomment-3392041253).
   "/path/to/ignore/.git",
+  "/path/to/homebrew-tap",
+  # WORKAROUND: Codex sandbox may still block worktree index locks unless .git is
+  # explicitly writable (see https://github.com/openai/codex/issues/5034#issuecomment-3392041253).
+  "/path/to/homebrew-tap/.git",
   "/path/to/.cargo",
 ]
 network_access = true
