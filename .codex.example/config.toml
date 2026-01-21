@@ -13,6 +13,7 @@ writable_roots = [
   # explicitly writable (see https://github.com/openai/codex/issues/5034#issuecomment-3392041253).
   "/path/to/ignore/.git",
   "/path/to/.cargo",
+  "/path/to/homebrew-tap",
 ]
 network_access = true
 

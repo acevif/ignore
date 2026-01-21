@@ -17,12 +17,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Add CONTRIBUTING.md with contribution guidelines, development workflow, and Homebrew tap link (#15).
 - Add CLAUDE.md and AGENTS.md for AI agent-specific instructions (#15).
 - Add `mise trust && mise install` to postCreate hook to automatically setup mise environment in new worktrees (#18).
+- Add `.claude/settings.local.json.example` template with `additionalDirectories` configuration.
 
 ### Changed
 
 - Write `.gitignore` atomically using a temp file + replace (preserving symlinks; hard links may break).
 - Simplify README.md to focus on user-facing information (moved developer content to CONTRIBUTING.md) (#15).
 - Refactor postCreate hooks into separate entries for better maintainability (mise.local.toml symlink, mise setup, .codex symlink, .claude/settings.local.json symlink) (#18).
+- Add homebrew-tap directory to Claude Code and Codex workspace access configurations.
 
 ## [0.2.2]
 
