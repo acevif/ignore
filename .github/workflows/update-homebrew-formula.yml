@@ -1,9 +1,8 @@
 name: Update Homebrew Formula
 
 on:
-  push:
-    tags:
-      - '[0-9][0-9]*.[0-9][0-9]*.[0-9][0-9]*'
+  release:
+    types: [published]
 
 jobs:
   update-formula:
@@ -14,5 +13,3 @@ jobs:
           token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
           formula: ignore-rs
           tap: acevif/homebrew-tap
-          tag: ${{ github.ref_name }}
-          revision: ${{ github.sha }}
