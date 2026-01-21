@@ -6,4 +6,7 @@
     # Codex: Symlink .codex directory only when it exists; missing directories should not error.
     # Claude: .claude/ is intended to be tracked except settings.local.json, so only symlink
     # settings.local.json (see https://code.claude.com/docs/en/settings).
-    postCreate = "if [ -e \"$REPO_ROOT/mise.local.toml\" ]; then if [ ! -e \"$WORKTREE_PATH/mise.local.toml\" ]; then ln -s \"$REPO_ROOT/mise.local.toml\" \"$WORKTREE_PATH/mise.local.toml\"; fi; else echo \"mise.local.toml not found; skipping\"; fi; if [ -d \"$REPO_ROOT/.codex\" ]; then if [ ! -e \"$WORKTREE_PATH/.codex\" ]; then ln -s \"$REPO_ROOT/.codex\" \"$WORKTREE_PATH/.codex\"; fi; else echo \".codex not found; skipping\"; fi; if [ -e \"$REPO_ROOT/.claude/settings.local.json\" ]; then mkdir -p \"$WORKTREE_PATH/.claude\"; if [ ! -e \"$WORKTREE_PATH/.claude/settings.local.json\" ]; then ln -s \"$REPO_ROOT/.claude/settings.local.json\" \"$WORKTREE_PATH/.claude/settings.local.json\"; fi; else echo \".claude/settings.local.json not found; skipping\"; fi"
+    postCreate = "if [ -e \"$REPO_ROOT/mise.local.toml\" ]; then ln -s \"$REPO_ROOT/mise.local.toml\" \"$WORKTREE_PATH/mise.local.toml\"; else echo \"mise.local.toml not found; skipping\"; fi;"
+    postCreate = "mise trust --quiet && mise install --quiet"
+    postCreate = "if [ -d \"$REPO_ROOT/.codex\" ]; then ln -s \"$REPO_ROOT/.codex\" \"$WORKTREE_PATH/.codex\"; else echo \".codex not found; skipping\"; fi;"
+    postCreate = "if [ -e \"$REPO_ROOT/.claude/settings.local.json\" ]; then ln -s \"$REPO_ROOT/.claude/settings.local.json\" \"$WORKTREE_PATH/.claude/settings.local.json\"; else echo \".claude/settings.local.json not found; skipping\"; fi"

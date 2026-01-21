@@ -11,9 +11,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Add Codex and gtr configuration files and ignore entries.
 - Add `.codex` symlink to ignore files for gtr-managed worktrees.
 - Add Claude Code PostToolUse hook for automatic `cargo fmt` on Rust file edits.
+- Add `mise trust && mise install` to postCreate hook to automatically setup mise environment in new worktrees.
 
 ### Changed
 - Write `.gitignore` atomically using a temp file + replace (preserving symlinks; hard links may break).
+- Refactor postCreate hooks into separate entries for better maintainability (mise.local.toml symlink, mise setup, .codex symlink, .claude/settings.local.json symlink).
 
 ## [0.2.2]
 - Previously released.
