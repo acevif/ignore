@@ -1,10 +1,10 @@
 # Contributing to ignore
 
-Thank you for your interest in contributing to `ignore`! We welcome contributions of all kinds.
+Thank you for your interest in contributing to `ignore`!
 
-## How to Contribute
+## Welcome Contributors
 
-We appreciate various types of contributions:
+We welcome contributions of all kinds and appreciate various types of contributions:
 
 - **Bug reports**: Found a bug? Please open an issue describing what happened and how to reproduce it.
 - **Feature requests**: Have an idea for a new feature? Open an issue to discuss it.
@@ -13,25 +13,35 @@ We appreciate various types of contributions:
 
 **Note**: Opening an issue to report bugs, suggest features, or ask questions is a valuable contribution in itself. You don't need to submit code to help improve this project.
 
-### Workflow
+## How to Contribute
 
-1. **For bug reports and feature requests**: Simply open an issue. No code required.
-2. **For code contributions**:
-   - Fork the repository and create a new branch
-   - Make your changes following the development guidelines below
-   - Submit a pull request to the `main` branch
-   - All changes must go through pull requests; direct pushes to `main` are not allowed
-   - PRs will be squash-merged to maintain a linear history
+### For bug reports and feature requests
+
+1. Simply open an issue. No code required.
+
+### For code contributions
+
+1. Fork the repository and create a new branch
+2. Make your changes following the development guidelines below
+3. Submit a pull request to the `main` branch
+4. Update `CHANGELOG.md` under `[Unreleased]` (greatly appreciated; if difficult, ask maintainers)
+5. Your PR will be reviewed and squash-merged (all changes must go through pull requests; direct pushes to `main` are not allowed)
 
 ## Development Guidelines
 
+* Pull request rules:
+  - MUST: Make all changes via Pull Requests; direct pushes to `main` are not allowed
+  - MUST: Squash merge PRs to keep a linear history on `main` (one commit per PR)
 * Commit message rules (for commits that land on `main`):
   - MUST: [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) ([日本語版 v1.0.0](https://www.conventionalcommits.org/ja/v1.0.0/))
   - SHOULD: [Chris Beams: How to Write a Git Commit Message](https://cbea.ms/git-commit/) (especially "what" and "why")
   - SHOULD: In addition to "what" and "why", include "Impact"
-* Pull request rules:
-  - MUST: Make all changes via Pull Requests; direct pushes to `main` are not allowed
-  - MUST: Squash merge PRs to keep a linear history on `main` (one commit per PR)
+* Changelog rules:
+  - Format: MUST follow [Keep a Changelog v1.1.0](https://keepachangelog.com/en/1.1.0/)
+  - Update timing: SHOULD update `CHANGELOG.md` with each PR (add entries under `[Unreleased]`)
+  - If updating the changelog is difficult, you MAY ask maintainers to handle it
+
+## Shell version
 
 ## Rust version (`ignore-rs`)
 
@@ -55,11 +65,10 @@ We appreciate various types of contributions:
 
 * `ignore add github rust`: append `Rust` to the `github` list in `Ignorefile`, then regenerate `.gitignore`.
 
-### Rust Development
+### Architecture & Design
 
-* Architecture:
-  - MAY: Use Clean Architecture principles to organize the codebase
-  - SHOULD: Separate concerns using Port/Adapter pattern (like Hexagonal Architecture)
+* MAY: Use Clean Architecture principles to organize the codebase
+* SHOULD: Separate concerns using Port/Adapter pattern (like Hexagonal Architecture)
 
 ## Package Management
 
