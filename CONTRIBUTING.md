@@ -43,6 +43,8 @@ We welcome contributions of all kinds and appreciate various types of contributi
 
 ## Shell version
 
+(TBW)
+
 ## Rust version (`ignore-rs`)
 
 ### Building `ignore` in Rust
