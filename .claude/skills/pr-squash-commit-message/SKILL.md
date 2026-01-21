@@ -10,6 +10,11 @@ metadata:
 
 Produce a clean, informative squash merge commit message for a GitHub Pull Request following this project's commit message conventions.
 
+## References
+
+- [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/)
+- [Chris Beams: How to Write a Git Commit Message](https://cbea.ms/git-commit/) (especially "what" and "why")
+
 ## Inputs to use (in priority order)
 
 1. Diff (`gh pr diff` or `git diff origin/main`)
@@ -46,9 +51,8 @@ The commit message MUST follow [Conventional Commits v1.0.0](https://www.convent
 
 2–8 short lines or bullet points covering:
 
-- **Why**: Problem or motivation
-- **What**: Changes made
-- **How**: Approach or implementation (if non-obvious)
+- **Why**: Problem or motivation (see [Chris Beams: How to Write a Git Commit Message](https://cbea.ms/git-commit/))
+- **What**: Changes made (see [Chris Beams: How to Write a Git Commit Message](https://cbea.ms/git-commit/))
 - **Impact**: Effects on users, system, or development (SHOULD include)
 
 Use bullets for multiple changes. Keep it scannable.
