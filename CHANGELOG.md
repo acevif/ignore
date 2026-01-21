@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Add CLAUDE.md and AGENTS.md for AI agent-specific instructions (#15).
 - Add `mise trust && mise install` to postCreate hook to automatically setup mise environment in new worktrees (#18).
 - Add `.claude/settings.local.json.example` template with `additionalDirectories` configuration (#20).
+- Add `pr-squash-commit-message` Claude Code skill for generating Conventional Commits format squash merge messages (#23).
 - Add GitHub Actions workflow to automatically update Homebrew formula when version tags are pushed (#24).
 - Add `ignore-rs` Homebrew formula for Rust version with automatic updates via GitHub Actions (#24).
 - Add `conflicts_with` declarations to both `ignore` and `ignore-rs` formulas to prevent binary name conflicts (#24).
