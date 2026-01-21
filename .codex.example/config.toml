@@ -14,6 +14,7 @@ writable_roots = [
   "/path/to/ignore/.git",
   "/path/to/.cargo",
   "/path/to/homebrew-tap",
+  "/path/to/homebrew-tap/.git",
 ]
 network_access = true
 
