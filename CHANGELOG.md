@@ -10,12 +10,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Add Rust CI workflow for pull requests and document Rust usage in README.
 - Add Codex and gtr configuration files and ignore entries.
 - Add Claude Code PostToolUse hook for automatic `cargo fmt` on Rust file edits.
-- Add CONTRIBUTING.md with contribution guidelines, development workflow, and Homebrew tap link.
-- Add CLAUDE.md and AGENTS.md for AI agent-specific instructions.
+- Add CONTRIBUTING.md with contribution guidelines, development workflow, and Homebrew tap link ([#15](https://github.com/acevif/ignore/pull/15)).
+- Add CLAUDE.md and AGENTS.md for AI agent-specific instructions ([#15](https://github.com/acevif/ignore/pull/15)).
 
 ### Changed
 - Write `.gitignore` atomically using a temp file + replace (preserving symlinks; hard links may break).
-- Simplify README.md to focus on user-facing information (moved developer content to CONTRIBUTING.md).
+- Simplify README.md to focus on user-facing information (moved developer content to CONTRIBUTING.md) ([#15](https://github.com/acevif/ignore/pull/15)).
 
 ## [0.2.2]
 - Previously released.
