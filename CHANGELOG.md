@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Add Rust integration tests for update behavior (including symlink preservation and non-clobbering failures).
 - Add Rust CI workflow for pull requests and document Rust usage in README.
 - Add Codex and gtr configuration files and ignore entries.
+- Add Claude Code PostToolUse hook for automatic `cargo fmt` on Rust file edits.
 
 ### Changed
 - Write `.gitignore` atomically using a temp file + replace (preserving symlinks; hard links may break).
