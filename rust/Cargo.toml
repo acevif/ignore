@@ -1,0 +1,21 @@
+[package]
+name = "ignore-rs"
+version = "0.3.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "ignore"
+path = "src/main.rs"
+
+[dependencies]
+async-trait = "0.1.89"
+futures = "0.3.31"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls-webpki-roots", "charset"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_norway = "0.9"
+tempfile = "3.9"
+tokio = { version = "1.47", features = ["macros", "rt-multi-thread", "time"] }
+
+[dev-dependencies]

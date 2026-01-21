@@ -1,0 +1,13 @@
+prefix_rule(pattern=["ls"], decision="allow")
+prefix_rule(pattern=["pwd"], decision="allow")
+prefix_rule(pattern=["cat"], decision="allow")
+prefix_rule(pattern=["head"], decision="allow")
+prefix_rule(pattern=["tail"], decision="allow")
+prefix_rule(pattern=["stat"], decision="allow")
+prefix_rule(pattern=["rg"], decision="allow")
+prefix_rule(pattern=["trash"], decision="allow")
+prefix_rule(
+    pattern=["rm"],
+    decision="deny",
+    justification="Use trash instead of rm",
+)

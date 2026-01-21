@@ -1,0 +1,2 @@
+prefix_rule(pattern=["mise", "trust"], decision="allow")
+prefix_rule(pattern=["mise", "install"], decision="allow")

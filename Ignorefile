@@ -1,0 +1,6 @@
+paths-ignore:
+    # Codex does not yet assume repo-managed config, so keep .codex/ ignored.
+    - ".codex/"
+    # Claude suggest repo-manage .claude/ dir, except setting.local.json. See: https://code.claude.com/docs/en/settings
+    - ".claude/settings.local.json"
+    - "mise.local.toml"
