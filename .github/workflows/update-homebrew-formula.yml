@@ -1,0 +1,18 @@
+name: Update Homebrew Formula
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  update-formula:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dawidd6/action-homebrew-bump-formula@v3
+        with:
+          token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+          formula: ignore-rs
+          tap: acevif/homebrew-tap
+          tag: ${{ github.ref_name }}
+          revision: ${{ github.sha }}
