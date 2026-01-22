@@ -67,4 +67,62 @@ paths-ignore:
             }
         );
     }
+
+    #[test]
+    fn parses_ignorefile_with_empty_paths_ignore() {
+        let input = r#"
+paths-ignore: []
+"#;
+
+        let parser = SerdeNorwayIgnorefileParser;
+        let parsed = parse_ignorefile(&parser, input.as_bytes()).expect("parse Ignorefile YAML");
+
+        assert_eq!(
+            parsed,
+            IgnoreConfig {
+                gitignore_io: vec![],
+                github: vec![],
+                paths_ignore: vec![],
+            }
+        );
+    }
+
+    #[test]
+    fn parses_ignorefile_without_paths_ignore() {
+        let input = r#"
+gitignore.io:
+  - Ruby
+github:
+  - Python
+"#;
+
+        let parser = SerdeNorwayIgnorefileParser;
+        let parsed = parse_ignorefile(&parser, input.as_bytes()).expect("parse Ignorefile YAML");
+
+        assert_eq!(
+            parsed,
+            IgnoreConfig {
+                gitignore_io: vec!["Ruby".to_string()],
+                github: vec!["Python".to_string()],
+                paths_ignore: vec![],
+            }
+        );
+    }
+
+    #[test]
+    fn parses_empty_ignorefile() {
+        let input = "";
+
+        let parser = SerdeNorwayIgnorefileParser;
+        let parsed = parse_ignorefile(&parser, input.as_bytes()).expect("parse empty Ignorefile");
+
+        assert_eq!(
+            parsed,
+            IgnoreConfig {
+                gitignore_io: vec![],
+                github: vec![],
+                paths_ignore: vec![],
+            }
+        );
+    }
 }
