@@ -16,7 +16,8 @@ github:
   - VisualStudio
 
 paths-ignore:
-  - "/dist"
+  - "/.turbo"
+  - "/.nx"
 ```
 
 2. Run `ignore` to generate or update `.gitignore`.
@@ -56,7 +57,8 @@ github:
 
 # Project-specific rules; quoted entries contain symbols
 paths-ignore:
-  - "/dist"                         # build output directory
+  - "/.turbo"                       # Turbo cache
+  - "/.nx"                          # Nx cache
   - ".env"                          # local environment config
   - "/src/auto-generated"           # generated sources to skip entirely
   # Keep `/src/auto-generated` ignored while still tracking `/src/auto-generated/.env.example`.
