@@ -176,3 +176,37 @@ fn update_preserves_gitignore_symlink() {
     let generated = std::fs::read_to_string(&target_path).expect("read linked.gitignore");
     assert_eq!(generated, EXPECTED_GITIGNORE_PATHS_ONLY);
 }
+
+#[test]
+fn update_succeeds_with_empty_ignorefile() {
+    let dir = tempfile::tempdir().expect("create temp dir");
+
+    std::fs::write(dir.path().join("Ignorefile"), "").expect("write empty Ignorefile");
+
+    let output = Command::new(env!("CARGO_BIN_EXE_ignore"))
+        .arg("update")
+        .current_dir(dir.path())
+        .output()
+        .expect("run ignore update");
+
+    assert!(
+        output.status.success(),
+        "status={}\nstdout:\n{}\nstderr:\n{}",
+        output.status,
+        String::from_utf8_lossy(&output.stdout),
+        String::from_utf8_lossy(&output.stderr),
+    );
+
+    let generated =
+        std::fs::read_to_string(dir.path().join(".gitignore")).expect("read generated .gitignore");
+
+    let expected = "\
+# This .gitignore file is auto-generated. Do not edit!\n\
+# Edit Ignorefile instead.\n\
+\n\
+\n\
+### Project specific settings ###\n\
+\n";
+
+    assert_eq!(generated, expected);
+}
