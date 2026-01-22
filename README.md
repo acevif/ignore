@@ -10,10 +10,10 @@ Manage .gitignore file
 ```yaml
 gitignore.io:
   - Node
+  - macOS
 
 github:
-  - VisualStudioCode
-  - macOS
+  - VisualStudio
 
 paths-ignore:
   - "/dist"
