@@ -8,8 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
-- Update README.md installation section to include Rust version (`ignore-rs`) and Cargo installation methods.
-- Add Document status section to README.md with last updated and reviewed dates.
+- Update README.md installation section to include Rust version (`ignore-rs`) and Cargo installation methods (#26).
+- Add Document status section to README.md with last updated and reviewed dates (#26).
 
 ## [0.3.1]
 
