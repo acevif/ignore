@@ -3,6 +3,28 @@ Manage .gitignore file
 
 ## Usage
 
+### Quick start
+
+1. Create an `Ignorefile` in the project root with:
+
+```yaml
+gitignore.io:
+  - Node
+
+github:
+  - VisualStudioCode
+  - macOS
+
+paths-ignore:
+  - "/dist"
+```
+
+2. Run `ignore` to generate or update `.gitignore`.
+
+```sh
+ignore
+```
+
 Generate or update `.gitignore` from `Ignorefile` in the current directory:
 
 ```sh
@@ -10,6 +32,8 @@ ignore
 # or explicitly
 ignore update
 ```
+
+### File format
 
 Ignorefile format (YAML in the project root, alongside `.gitignore`):
 
@@ -32,10 +56,10 @@ github:
 
 # Project-specific rules; quoted entries contain symbols
 paths-ignore:
-  # Keep `/src/auto-generated` ignored while still tracking `/src/auto-generated/.env.example`.
   - "/dist"                         # build output directory
   - ".env"                          # local environment config
   - "/src/auto-generated"           # generated sources to skip entirely
+  # Keep `/src/auto-generated` ignored while still tracking `/src/auto-generated/.env.example`.
   - "!/src/auto-generated/.env.example"  # but keep this template file
 ```
 
