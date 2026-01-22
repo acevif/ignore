@@ -14,6 +14,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - Update README.md installation section to include Rust version (`ignore-rs`) and Cargo installation methods (#26).
 
+### Fixed
+
+- Fix Cargo installation command to use clone + local install instead of invalid `--git` with `--path` combination (#26).
+
 ## [0.3.1]
 
 No implementation changes. This release tests the automated Homebrew formula update workflow.

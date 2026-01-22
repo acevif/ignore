@@ -41,7 +41,9 @@ brew install acevif/tap/ignore-rs
 ### Cargo
 
 ```sh
-cargo install --git https://github.com/acevif/ignore --path rust
+git clone https://github.com/acevif/ignore.git
+cd ignore
+cargo install --path rust
 ```
 
 ## Contributing
