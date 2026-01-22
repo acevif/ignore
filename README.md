@@ -38,19 +38,19 @@ ignore update
 
 Ignorefile format (YAML in the project root, alongside `.gitignore`):
 
-- `gitignore.io`: list of templates fetched from gitignore.io.
-- `github`: list of templates fetched from GitHub's `github/gitignore` repo.
+- `gitignore.io`: list of templates fetched from gitignore.io ([gitignore.io](https://www.toptal.com/developers/gitignore/) / [toptal/gitignore.io](https://github.com/toptal/gitignore.io)).
+- `github`: list of templates fetched from GitHub's `github/gitignore` repo ([github/gitignore](https://github.com/github/gitignore)).
 - `paths-ignore`: project-specific ignore patterns (same syntax as `.gitignore`).
 
 Example `Ignorefile`:
 
 ```yaml
-# Templates that come from gitignore.io ([gitignore.io](https://www.toptal.com/developers/gitignore/) / [toptal/gitignore.io](https://github.com/toptal/gitignore.io))
+# Templates that come from gitignore.io
 gitignore.io:
   - Rust
   - direnv
 
-# Templates sourced from GitHub's curated repository ([github/gitignore](https://github.com/github/gitignore))
+# Templates sourced from GitHub's curated repository
 github:
   - Python
   - Node
@@ -65,6 +65,7 @@ paths-ignore:
   - "!/src/auto-generated/.env.example"  # but keep this template file
 ```
 
+> [!NOTE]
 > Use double quotes around `paths-ignore` patterns that contain symbols (e.g., leading `!`, dots, or slashes) to keep the YAML parser happy.
 
 Show help:
