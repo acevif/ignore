@@ -28,10 +28,30 @@ ignore --version
 
 ## Install
 
-```
+### Homebrew
+
+```sh
+# Recommended
 brew install acevif/tap/ignore
+
+# Rust version
+brew install acevif/tap/ignore-rs
+```
+
+### Cargo
+
+```sh
+cargo install --git https://github.com/acevif/ignore --path rust
 ```
 
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, guidelines, and how to contribute.
+
+## Document status
+
+- Last updated: 2026-01-22
+- Last reviewed: 2026-01-22
+
+Updated means: content changes that affect meaning (format-only changes do not count).
+Review means: a quick sanity check for consistency (not an exhaustive review).
