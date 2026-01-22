@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- Update README.md installation section to include Rust version (`ignore-rs`) and Cargo installation methods.
+- Add Document status section to README.md with last updated and reviewed dates.
+
 ## [0.3.1]
 
 No implementation changes. This release tests the automated Homebrew formula update workflow.
