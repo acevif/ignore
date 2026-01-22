@@ -32,13 +32,12 @@ github:
 
 # Project-specific rules; quoted entries contain symbols
 paths-ignore:
+  # Keep `/src/auto-generated` ignored while still tracking `/src/auto-generated/.env.example`.
   - "/dist"                         # build output directory
   - ".env"                          # local environment config
   - "/src/auto-generated"           # generated sources to skip entirely
   - "!/src/auto-generated/.env.example"  # but keep this template file
 ```
-
-This configuration keeps `/src/auto-generated` ignored while still allowing `/src/auto-generated/.env.example` to be tracked, and the reminder below explains why symbol-heavy entries need quoting.
 
 > Use double quotes around `paths-ignore` patterns that contain symbols (e.g., leading `!`, dots, or slashes) to keep the YAML parser happy.
 
