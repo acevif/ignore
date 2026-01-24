@@ -503,7 +503,7 @@ dependencies = [
 
 [[package]]
 name = "ignore-rs"
-version = "0.3.1"
+version = "0.3.3"
 dependencies = [
  "async-trait",
  "futures",
