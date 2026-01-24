@@ -8,6 +8,10 @@ jobs:
   update-formula:
     runs-on: ubuntu-latest
     strategy:
+      # Serialize formula updates to avoid tap push conflicts
+      # Each job clones and pushes to the same tap repo, so parallel
+      # pushes can result in non-fast-forward rejections
+      max-parallel: 1
       matrix:
         formula: [ignore, ignore-rs, ignore-sh]
     steps:
