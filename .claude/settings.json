@@ -69,7 +69,8 @@
       "Bash(yq:*)",
       "Bash(mise list:*)",
       "Bash(mise current:*)",
-      "Bash(mise which:*)"
+      "Bash(mise which:*)",
+      "Bash(shasum:*)"
     ]
   },
   "hooks": {
