@@ -1,9 +1,7 @@
 # ignore
 Manage .gitignore file
 
-## Usage
-
-### Quick start
+## Quick start
 
 1. Create an `Ignorefile` in the project root with:
 
@@ -26,7 +24,7 @@ paths-ignore:
 ignore
 ```
 
-### `Ignorefile` format
+## `Ignorefile` format
 
 `Ignorefile` is a YAML configuration file placed alongside `.gitignore`.
 
@@ -37,7 +35,7 @@ It supports the following keys:
 
 > **Note:** Quote patterns containing special characters (e.g., `!`, `.`, `/`).
 
-#### Example `Ignorefile`:
+### Example `Ignorefile`:
 
 ```yaml
 # Templates sourced from Toptal's gitignore.io
@@ -60,7 +58,7 @@ paths-ignore:
   - "!/src/auto-generated/.env.example"
 ```
 
-### Commands
+## Commands
 
 Generate or update `.gitignore` from `Ignorefile` in the current directory:
 
