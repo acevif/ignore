@@ -7,9 +7,16 @@ on:
 jobs:
   update-formula:
     runs-on: ubuntu-latest
+    strategy:
+      # Serialize formula updates to avoid tap push conflicts
+      # Each job clones and pushes to the same tap repo, so parallel
+      # pushes can result in non-fast-forward rejections
+      max-parallel: 1
+      matrix:
+        formula: [ignore, ignore-rs, ignore-sh]
     steps:
       - uses: dawidd6/action-homebrew-bump-formula@v3
         with:
           token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
-          formula: ignore-rs
+          formula: ${{ matrix.formula }}
           tap: acevif/homebrew-tap

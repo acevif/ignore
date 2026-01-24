@@ -9,10 +9,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Added
 
 - Add tests for empty Ignorefile handling to verify Rust version handles empty `paths-ignore` gracefully (unlike shell version #4) (#30).
+- Add `ignore-sh` Homebrew formula for explicit shell version installation (#19, #32).
 
 ### Changed
 
 - Restructure and enhance README.md with quick start guide, Ignorefile format section, expanded installation, and document status tracking (#17, #26, #31).
+- Update Homebrew formula release workflow to update all three formulas (ignore, ignore-rs, ignore-sh) on each release, and prevent tap push and binary name conflicts (#19, #32).
 
 ## [0.3.1]
 
