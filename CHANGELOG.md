@@ -14,10 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Changed
 
 - Restructure and enhance README.md with quick start guide, Ignorefile format section, expanded installation, and document status tracking (#17, #26, #31).
-- Update Homebrew formula release workflow to update all three formulas (ignore, ignore-rs, ignore-sh) on each release (#32).
-- Serialize formula updates with `max-parallel: 1` to avoid tap push conflicts when multiple jobs push to the same tap repo simultaneously (#32).
-- Add `shasum` to allowed Bash commands in project settings (#32).
-- Complete mutual `conflicts_with` declarations across all three formulas (ignore, ignore-rs, ignore-sh) to prevent binary name conflicts (#19, #32).
+- Update Homebrew formula release workflow to update all three formulas (ignore, ignore-rs, ignore-sh) on each release, and prevent tap push and binary name conflicts (#19, #32).
 
 ## [0.3.1]
 
