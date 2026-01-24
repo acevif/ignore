@@ -1,9 +1,7 @@
 # ignore
 Manage .gitignore file
 
-## Usage
-
-### Quick start
+## Quick start
 
 1. Create an `Ignorefile` in the project root with:
 
@@ -20,11 +18,47 @@ paths-ignore:
   - "/.nx"
 ```
 
-2. Run `ignore` to generate or update `.gitignore`.
+2. Run `ignore` to generate `.gitignore`.
 
 ```sh
 ignore
 ```
+
+## `Ignorefile` format
+
+`Ignorefile` is a YAML configuration file placed alongside `.gitignore`.
+
+It supports the following keys:
+- `gitignore.io`: Templates from [gitignore.io](https://www.toptal.com/developers/gitignore/) ([toptal/gitignore.io](https://github.com/toptal/gitignore.io))
+- `github`: Templates from GitHub's [github/gitignore](https://github.com/github/gitignore) repository
+- `paths-ignore`: Project-specific patterns (same syntax as `.gitignore`)
+
+> **Note:** Quote patterns containing special characters (e.g., `!`, `.`, `/`).
+
+### Example `Ignorefile`:
+
+```yaml
+# Templates sourced from Toptal's gitignore.io
+gitignore.io:
+  - Rust
+  - direnv
+
+# Templates sourced from GitHub's repository
+github:
+  - Python
+  - Node
+
+# Project-specific rules
+paths-ignore:
+  - "/.turbo"
+  - "/.nx"
+  - ".env"
+  # Ignore /src/auto-generated but track .env.example inside it
+  - "/src/auto-generated"
+  - "!/src/auto-generated/.env.example"
+```
+
+## Commands
 
 Generate or update `.gitignore` from `Ignorefile` in the current directory:
 
@@ -33,40 +67,6 @@ ignore
 # or explicitly
 ignore update
 ```
-
-### File format
-
-Ignorefile format (YAML in the project root, alongside `.gitignore`):
-
-- `gitignore.io`: list of templates fetched from gitignore.io ([gitignore.io](https://www.toptal.com/developers/gitignore/) / [toptal/gitignore.io](https://github.com/toptal/gitignore.io)).
-- `github`: list of templates fetched from GitHub's `github/gitignore` repo ([github/gitignore](https://github.com/github/gitignore)).
-- `paths-ignore`: project-specific ignore patterns (same syntax as `.gitignore`).
-
-Example `Ignorefile`:
-
-```yaml
-# Templates that come from gitignore.io
-gitignore.io:
-  - Rust
-  - direnv
-
-# Templates sourced from GitHub's curated repository
-github:
-  - Python
-  - Node
-
-# Project-specific rules; quoted entries contain symbols
-paths-ignore:
-  - "/.turbo"                       # Turbo cache
-  - "/.nx"                          # Nx cache
-  - ".env"                          # local environment config
-  - "/src/auto-generated"           # generated sources to skip entirely
-  # Keep `/src/auto-generated` ignored while still tracking `/src/auto-generated/.env.example`.
-  - "!/src/auto-generated/.env.example"  # but keep this template file
-```
-
-> [!NOTE]
-> Use double quotes around `paths-ignore` patterns that contain symbols (e.g., leading `!`, dots, or slashes) to keep the YAML parser happy.
 
 Show help:
 
@@ -112,5 +112,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, guidelines, and ho
 - Last updated: 2026-01-22
 - Last reviewed: 2026-01-22
 
-Updated means: content changes that affect meaning (format-only changes do not count).
-Review means: a quick sanity check for consistency (not an exhaustive review).
+<details>
+<summary>Date definitions</summary>
+
+- Updated means: content changes that affect meaning (format-only changes do not count).
+- Review means: a quick sanity check for consistency (not an exhaustive review).
+</details>

@@ -25,6 +25,14 @@ Produce a clean, informative squash merge commit message for a GitHub Pull Reque
 
 If some inputs are missing, ask the user to provide them OR infer conservatively from what is available.
 
+### CHANGELOG.md handling
+
+When a PR includes changes to `CHANGELOG.md`:
+
+- **Omit from commit message**: Routine entry additions under `[Unreleased]` that simply document the PR's other changes. This is expected for every PR and adds no information.
+
+- **Include in commit message**: Structural changes, format updates, past entry corrections, or any changes unrelated to the PR's primary purpose.
+
 ## Output format
 
 The commit message MUST follow [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) format:
