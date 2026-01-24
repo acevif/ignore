@@ -9,7 +9,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Added
 
 - Add tests for empty Ignorefile handling to verify Rust version handles empty `paths-ignore` gracefully (unlike shell version #4) (#30).
-- Enhance README.md with quick start guide, Ignorefile format documentation, expanded installation section (Rust version and Cargo methods), and document status tracking (#17, #26, #31).
+
+### Changed
+
+- Restructure and enhance README.md with quick start guide, Ignorefile format section, expanded installation, and document status tracking (#17, #26, #31).
 
 ## [0.3.1]
 
