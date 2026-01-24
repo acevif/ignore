@@ -114,5 +114,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, guidelines, and ho
 - Last updated: 2026-01-22
 - Last reviewed: 2026-01-22
 
-Updated means: content changes that affect meaning (format-only changes do not count).
-Review means: a quick sanity check for consistency (not an exhaustive review).
+<details>
+<summary>Date definitions</summary>
+
+- Updated means: content changes that affect meaning (format-only changes do not count).
+- Review means: a quick sanity check for consistency (not an exhaustive review).
+</details>
