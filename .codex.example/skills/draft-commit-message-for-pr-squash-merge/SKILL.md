@@ -1,5 +1,5 @@
 ---
-name: commit-message-pr-squash-merge
+name: draft-commit-message-for-pr-squash-merge
 description: Draft a high-quality squash merge commit message for a GitHub PR that strictly follows Conventional Commits.
 ---
 ## Goal
