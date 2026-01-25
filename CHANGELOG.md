@@ -6,9 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-01-25
+
 ### Removed
 
 - Remove the shell implementation to concentrate development resources; `ignore` is now Rust-only. (#37)
+
+### Changed
+
+- Update docs and release workflow to reflect Rust-only distribution. (#37)
+
+## [0.3.3] - 2026-01-25
+
+No implementation changes. This release bumps the version to 0.3.3.
+
+## [0.3.2] - 2026-01-24
 
 ### Added
 
@@ -20,11 +32,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Restructure and enhance README.md with quick start guide, Ignorefile format section, expanded installation, and document status tracking (#17, #26, #31).
 - Update Homebrew formula release workflow to update all three formulas (ignore, ignore-rs, ignore-sh) on each release, and prevent tap push and binary name conflicts (#19, #32).
 
-## [0.3.1]
+## [0.3.1] - 2026-01-22
 
 No implementation changes. This release tests the automated Homebrew formula update workflow.
 
-## [0.3.0]
+## [0.3.0] - 2026-01-22
 
 ### Added
 
@@ -51,27 +63,45 @@ No implementation changes. This release tests the automated Homebrew formula upd
 - Add homebrew-tap directory to Claude Code and Codex workspace access configurations (#20).
 - Improve Homebrew formula test blocks to test actual functionality instead of just version output (#24).
 
-## [0.2.2]
+## [0.2.2] - 2023-01-10
 
-- Previously released.
+### Added
 
-## [0.2.1]
+- Add README.md with basic project overview and usage notes.
 
-- Previously released.
+## [0.2.1] - 2023-01-10
 
-## [0.2.0]
+### Fixed
 
-- Previously released.
+- Guard empty `gitignore.io` / `github` lists in Ignorefile to avoid iteration errors.
 
-## [0.1.1]
+## [0.2.0] - 2023-01-10
 
-- Previously released.
+### Added
 
-## [0.1.0]
+- Add Homebrew formula (`formula.rb`).
 
-- Previously released.
+### Changed
 
-[Unreleased]: https://github.com/acevif/ignore/compare/0.3.1...HEAD
+- Rename `ignore.sh` to `ignore`.
+
+## [0.1.1] - 2023-01-10
+
+### Added
+
+- Add LICENSE (Unlicense).
+
+## [0.1.0] - 2023-01-10
+
+### Added
+
+- Initial shell implementation (`ignore.sh`).
+- Add sample Ignorefile and sample `.gitignore`.
+
+[Unreleased]: https://github.com/acevif/ignore/compare/0.4.0...HEAD
+[0.4.0]: https://github.com/acevif/ignore/compare/0.3.3...0.4.0
+[0.3.3]: https://github.com/acevif/ignore/compare/0.3.2...0.3.3
+[0.3.2]: https://github.com/acevif/ignore/compare/0.3.1...0.3.2
 [0.3.1]: https://github.com/acevif/ignore/compare/0.3.0...0.3.1
 [0.3.0]: https://github.com/acevif/ignore/compare/0.2.2...0.3.0
 [0.2.2]: https://github.com/acevif/ignore/compare/0.2.1...0.2.2
