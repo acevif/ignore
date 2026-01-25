@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
-- Generate Rust ignores from the root Ignorefile using GitHub's Rust template, removing per-directory Ignorefile and .gitignore. (#40)
+- Generate Rust ignores from the root Ignorefile using GitHub's Rust template, removing per-directory Ignorefile and .gitignore. (#27, #40)
 
 ## [0.4.0] - 2026-01-25
 
