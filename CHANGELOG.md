@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - Enforce Conventional Commit-style PR titles in CI via amannn/action-semantic-pull-request. (#22, #41)
 
+### Changed
+
+- Generate Rust ignores from the root Ignorefile using GitHub's Rust template, removing per-directory Ignorefile and .gitignore. (#27, #40)
+
 ## [0.4.0] - 2026-01-25
 
 ### Removed
