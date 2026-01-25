@@ -41,16 +41,11 @@ We welcome contributions of all kinds and appreciate various types of contributi
   - Update timing: SHOULD update `CHANGELOG.md` with each PR (add entries under `[Unreleased]`)
   - If updating the changelog is difficult, you MAY ask maintainers to handle it
 
-## Shell version
-
-(TBW)
-
-## Rust version (`ignore-rs`)
+## Rust version
 
 ### Building `ignore` in Rust
 
-* Keep the shell version; develop in parallel and maintain feature parity.
-* Use the shell implementation as the behavioral reference while Rust stabilizes.
+* `ignore` is implemented in Rust.
 * Add Rust tests that describe expected CLI output and error cases before coding.
 
 ### YAML crates (`Ignorefile`)
