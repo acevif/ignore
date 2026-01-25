@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+
+- Enforce Conventional Commit-style PR titles in CI. (#22)
+
 ## [0.4.0] - 2026-01-25
 
 ### Removed
