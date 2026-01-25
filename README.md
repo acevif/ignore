@@ -88,11 +88,7 @@ ignore --version
 ### Homebrew
 
 ```sh
-# Recommended
 brew install acevif/tap/ignore
-
-# Rust version
-brew install acevif/tap/ignore-rs
 ```
 
 ### Cargo
@@ -109,7 +105,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, guidelines, and ho
 
 ## Document status
 
-- Last updated: 2026-01-22
+- Last updated: 2026-01-25
 - Last reviewed: 2026-01-22
 
 <details>
