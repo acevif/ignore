@@ -15,4 +15,4 @@ Create a PR with consistent changelog hygiene and a clean PR description. Use th
 2. Set the PR title using the Conventional Commits first-line format.
 3. Prepare the PR description carefully. Inline `\n` escapes often end up as literal text (backslash + n), so verify real newlines; write the body to a file and use `gh pr create --body-file /tmp/pr-body.md` or a heredoc that writes the file.
 4. Create the PR. Run `gh pr create` with the prepared title and body (it will push as needed).
-5. Replace the changelog placeholder with the actual PR number after creation.
+5. Replace the placeholder PR number in the changelog with the actual PR number after creation.
