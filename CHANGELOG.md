@@ -9,6 +9,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Added
 
 - Enforce Conventional Commit-style PR titles in CI via amannn/action-semantic-pull-request. (#22, #41)
+- Add example Codex skills for PR creation and squash-merge commit message drafting. (#42)
+
+### Changed
+
+- Add autonomy and communication guidance for AI agents. (#42)
 
 ### Changed
 
