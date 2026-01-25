@@ -1,5 +1,5 @@
 ---
-name: pr-create
+name: prepare-and-create-pr
 description: Create pull requests in this repo using gh, including preparing CHANGELOG entries, related issue references, and PR descriptions; use when asked to open, draft, or submit a PR or to run gh pr create.
 ---
 
