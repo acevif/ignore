@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Removed
+
+- Remove the shell implementation; `ignore` is now Rust-only. (#TBD)
+
 ### Added
 
 - Add tests for empty Ignorefile handling to verify Rust version handles empty `paths-ignore` gracefully (unlike shell version #4) (#30).
