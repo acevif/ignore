@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Removed
 
-- Remove the shell implementation; `ignore` is now Rust-only. (#37)
+- Remove the shell implementation to concentrate development resources; `ignore` is now Rust-only. (#37)
 
 ### Added
 
