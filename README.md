@@ -88,7 +88,6 @@ ignore --version
 ### Homebrew
 
 ```sh
-# Rust version
 brew install acevif/tap/ignore
 ```
 

@@ -41,9 +41,9 @@ We welcome contributions of all kinds and appreciate various types of contributi
   - Update timing: SHOULD update `CHANGELOG.md` with each PR (add entries under `[Unreleased]`)
   - If updating the changelog is difficult, you MAY ask maintainers to handle it
 
-## Rust version
+## Development
 
-### Building `ignore` in Rust
+### Building `ignore`
 
 * `ignore` is implemented in Rust.
 * Add Rust tests that describe expected CLI output and error cases before coding.
