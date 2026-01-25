@@ -1,9 +1,0 @@
-# This .gitignore file is auto-generated. Do not edit!
-# Edit Ignorefile instead.
-
-
-### Project specific settings ###
-
-/target/
-/.cargo-home/
-**/*.rs.bk

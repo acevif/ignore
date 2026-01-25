@@ -1,4 +1,0 @@
-paths-ignore:
-  - "/target/"
-  - "/.cargo-home/"
-  - "**/*.rs.bk"
