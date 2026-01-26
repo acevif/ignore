@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Changed
 
 - Add autonomy and communication guidance for AI agents. (#42)
+- Document `nix develop` devShell usage in contributing guide. (#43)
 
 ### Changed
 
