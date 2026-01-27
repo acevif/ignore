@@ -1,5 +1,5 @@
 {
-  description = "ignore: CLI to manage .gitignore from Ignorefile";
+  description = "Create \".gitignore\" from GitHub/TopTal (gitignore.io) templates plus your own patterns, defined in a file";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
