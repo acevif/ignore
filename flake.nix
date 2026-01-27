@@ -27,6 +27,10 @@
 
           meta = with pkgs.lib; {
             description = "Create `.gitignore` from GitHub/TopTal templates + patterns in `Ignorefile`";
+            longDescription = ''
+              Generate `.gitignore` from GitHub/TopTal (gitignore.io) templates and your own patterns,
+              all configured in `Ignorefile`.
+            '';
             homepage = "https://github.com/acevif/ignore";
             mainProgram = "ignore";
           };
