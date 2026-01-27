@@ -1,5 +1,5 @@
 # ignore
-Manage .gitignore file
+Create `.gitignore` from GitHub/TopTal (gitignore.io) templates + your own patterns, all configured in `Ignorefile`
 
 ## Quick start
 
@@ -18,10 +18,19 @@ paths-ignore:
   - "/.nx"
 ```
 
-2. Run `ignore` to generate `.gitignore`.
+2. Generate `.gitignore`.
+
+**If you use Homebrew:**
 
 ```sh
+brew install acevif/tap/ignore
 ignore
+```
+
+**If you use Nix, just run without installing:**
+
+```sh
+nix run github:acevif/ignore
 ```
 
 ## `Ignorefile` format
@@ -89,6 +98,34 @@ ignore --version
 
 ```sh
 brew install acevif/tap/ignore
+```
+
+### Nix
+Install to your profile:
+
+```sh
+nix profile install github:acevif/ignore
+```
+
+Use in your devShell (flake input):
+
+```nix
+inputs = {
+  nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+  ignore.url = "github:acevif/ignore";
+};
+```
+
+```nix
+outputs = { self, nixpkgs, ignore, ... }:
+  let
+    system = builtins.currentSystem;
+    pkgs = import nixpkgs { inherit system; };
+  in {
+    devShells.default = pkgs.mkShell {
+      packages = [ ignore.packages.${system}.default ];
+    };
+  };
 ```
 
 ### Cargo
