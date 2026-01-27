@@ -40,10 +40,7 @@
 
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            rustc
-            cargo
-            rustfmt
-            clippy
+            rustup
             rust-analyzer
             zsh
             opencode
