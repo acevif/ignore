@@ -1,5 +1,6 @@
 github:
     - Rust
+    - Nix
 
 paths-ignore:
     # Codex does not yet assume repo-managed config, so keep .codex/ ignored.
