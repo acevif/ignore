@@ -18,13 +18,16 @@ paths-ignore:
   - "/.nx"
 ```
 
-2. Run `ignore` to generate `.gitignore`.
+2. Generate `.gitignore`.
+
+Homebrew:
 
 ```sh
+brew install acevif/tap/ignore
 ignore
 ```
 
-Or run without installing (Nix):
+Nix:
 
 ```sh
 nix run github:acevif/ignore
