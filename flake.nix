@@ -1,5 +1,5 @@
 {
-  description = "Create \".gitignore\" from GitHub/TopTal (gitignore.io) templates plus your own patterns, defined in a file";
+  description = "Create \".gitignore\" from GitHub/TopTal (gitignore.io) templates and your own patterns, all defined in a file";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
