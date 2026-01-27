@@ -1,5 +1,5 @@
 # ignore
-Manage .gitignore file
+Create `.gitignore` from GitHub/TopTal (gitignore.io) templates + your own patterns, all configured in `Ignorefile`
 
 ## Quick start
 
