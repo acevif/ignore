@@ -24,6 +24,12 @@ paths-ignore:
 ignore
 ```
 
+Or run without installing (Nix):
+
+```sh
+nix run github:acevif/ignore
+```
+
 ## `Ignorefile` format
 
 `Ignorefile` is a YAML configuration file placed alongside `.gitignore`.
@@ -92,22 +98,13 @@ brew install acevif/tap/ignore
 ```
 
 ### Nix
-
-Run directly without installing:
-
-```sh
-nix run github:acevif/ignore
-```
-
-Or install to your profile:
+Install to your profile:
 
 ```sh
 nix profile install github:acevif/ignore
 ```
 
-### Nix devShell (flake input)
-
-If you want `ignore` available in your own devShell, add this input and package:
+Use in your devShell (flake input):
 
 ```nix
 inputs = {
