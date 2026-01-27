@@ -17,6 +17,23 @@
         };
       in
       {
+        packages.default = pkgs.rustPlatform.buildRustPackage {
+          pname = "ignore";
+          version = "0.4.0";
+
+          src = ./rust;
+
+          cargoLock = {
+            lockFile = ./rust/Cargo.lock;
+          };
+
+          meta = with pkgs.lib; {
+            description = "Manage .gitignore file from Ignorefile";
+            homepage = "https://github.com/acevif/ignore";
+            mainProgram = "ignore";
+          };
+        };
+
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             rustc

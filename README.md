@@ -91,6 +91,20 @@ ignore --version
 brew install acevif/tap/ignore
 ```
 
+### Nix
+
+Run directly without installing:
+
+```sh
+nix run github:acevif/ignore
+```
+
+Or install to your profile:
+
+```sh
+nix profile install github:acevif/ignore
+```
+
 ### Cargo
 
 ```sh

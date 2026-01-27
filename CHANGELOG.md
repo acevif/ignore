@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Enforce Conventional Commit-style PR titles in CI via amannn/action-semantic-pull-request. (#22, #41)
 - Add example Codex skills for PR creation and squash-merge commit message drafting. (#42)
 - Add Nix flake devShell for Rust tooling with zsh entry. (#43)
+- Add Nix flake package output for `nix run` and `nix profile install`. (#XX)
 
 ### Changed
 
