@@ -1,5 +1,5 @@
 {
-  description = "Rust dev shell";
+  description = "ignore: CLI to manage .gitignore from Ignorefile";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
