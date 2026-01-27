@@ -15,9 +15,7 @@
           inherit system;
           config.allowUnfree = true;
         };
-      in
-      {
-        packages.default = pkgs.rustPlatform.buildRustPackage {
+        ignorePackage = pkgs.rustPlatform.buildRustPackage {
           pname = "ignore";
           version = "0.4.0";
 
@@ -32,6 +30,12 @@
             homepage = "https://github.com/acevif/ignore";
             mainProgram = "ignore";
           };
+        };
+      in
+      {
+        packages = {
+          default = ignorePackage;
+          ignore = ignorePackage;
         };
 
         devShells.default = pkgs.mkShell {

@@ -105,6 +105,29 @@ Or install to your profile:
 nix profile install github:acevif/ignore
 ```
 
+### Nix devShell (flake input)
+
+If you want `ignore` available in your own devShell, add this input and package:
+
+```nix
+inputs = {
+  nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+  ignore.url = "github:acevif/ignore";
+};
+```
+
+```nix
+outputs = { self, nixpkgs, ignore, ... }:
+  let
+    system = builtins.currentSystem;
+    pkgs = import nixpkgs { inherit system; };
+  in {
+    devShells.default = pkgs.mkShell {
+      packages = [ ignore.packages.${system}.default ];
+    };
+  };
+```
+
 ### Cargo
 
 ```sh

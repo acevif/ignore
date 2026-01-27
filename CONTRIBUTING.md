@@ -51,7 +51,7 @@ If you use Nix, you can enter a Rust-ready dev shell:
 nix develop
 ```
 
-This devShell installs `rustc`, `cargo`, `rustfmt`, `clippy`, and `rust-analyzer`, then switches to `zsh`.
+This devShell installs Rust tooling (`rustc`, `cargo`, `rustfmt`, `clippy`, `rust-analyzer`), coding agents (`opencode`, `codex`, `claude-code`, `gemini-cli`), and `zsh`, then switches to `zsh`.
 
 ### Building `ignore`
 
