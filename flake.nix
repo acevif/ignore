@@ -26,7 +26,7 @@
           };
 
           meta = with pkgs.lib; {
-            description = "Manage .gitignore file from Ignorefile";
+            description = "Create `.gitignore` from GitHub/TopTal templates + patterns in `Ignorefile`";
             homepage = "https://github.com/acevif/ignore";
             mainProgram = "ignore";
           };
