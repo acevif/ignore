@@ -26,7 +26,7 @@
           };
 
           meta = with pkgs.lib; {
-            description = "Create `.gitignore` from GitHub/TopTal templates + patterns in `Ignorefile`";
+            description = "Create `.gitignore` from `Ignorefile`";
             longDescription = ''
               Generate `.gitignore` from GitHub/TopTal (gitignore.io) templates and your own patterns,
               all configured in `Ignorefile`.
