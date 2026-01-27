@@ -27,7 +27,7 @@ brew install acevif/tap/ignore
 ignore
 ```
 
-**If you use Nix (without installing):**
+**If you use Nix, just run without installing:**
 
 ```sh
 nix run github:acevif/ignore
