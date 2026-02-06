@@ -15,7 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
-- Migrate Nix flake configuration from flake-utils to flake-parts. (#PR-NUMBER)
+- Migrate Nix flake configuration from flake-utils to flake-parts. (#52)
 - Add autonomy and communication guidance for AI agents. (#42)
 - Document `nix develop` devShell usage in contributing guide. (#43)
 - Refine one-line descriptions (README, Nix flake metadata, Homebrew formula, and GitHub repository description). (#43)
