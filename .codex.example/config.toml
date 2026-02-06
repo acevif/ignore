@@ -1,5 +1,6 @@
 sandbox_mode = "workspace-write"
 hide_agent_reasoning = true
+web_search = "live"
 
 [shell_environment_policy]
 inherit = "all"
@@ -23,5 +24,4 @@ network_access = true
 [features]
 shell_snapshot = true
 steer = true
-web_search_request = true
 unified_exec = true
