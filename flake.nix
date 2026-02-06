@@ -11,10 +11,18 @@
     systems.url = "github:nix-systems/default";
   };
 
-  outputs = inputs@{ nixpkgs, nixpkgs-unstable, flake-parts, systems, ... }:
+  outputs =
+    inputs@{
+      nixpkgs,
+      nixpkgs-unstable,
+      flake-parts,
+      systems,
+      ...
+    }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import systems;
-      perSystem = { system, ... }:
+      perSystem =
+        { system, ... }:
         let
           pkgs = import nixpkgs { inherit system; };
           pkgs-unstable = import nixpkgs-unstable {
@@ -49,16 +57,19 @@
           };
 
           devShells.default = pkgs.mkShell {
-            packages = with pkgs; [
-              rustup
-              rust-analyzer
-              zsh
-              opencode
-            ] ++ (with pkgs-unstable; [
-              codex
-              claude-code
-              gemini-cli
-            ]);
+            packages =
+              with pkgs;
+              [
+                rustup
+                rust-analyzer
+                zsh
+                opencode
+              ]
+              ++ (with pkgs-unstable; [
+                codex
+                claude-code
+                gemini-cli
+              ]);
 
             shellHook = ''
               exec zsh
