@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Enforce Conventional Commit-style PR titles in CI via amannn/action-semantic-pull-request. (#22, #41)
 - Add example Codex skills for PR creation and squash-merge commit message drafting. (#42)
 - Add Nix flake devShell with Rust tooling, coding agents, and zsh entry. (#43)
-- Add Nix flake package output for `nix run`, `nix profile install`, and `nix build`. (#43)
+- Add Nix flake package output for `nix run`, `nix profile add`, and `nix build`. (#43)
 
 ### Changed
 
@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Add autonomy and communication guidance for AI agents. (#42)
 - Document `nix develop` devShell usage in contributing guide. (#43)
 - Refine one-line descriptions (README, Nix flake metadata, Homebrew formula, and GitHub repository description). (#43)
+- Update README examples to use `nix profile add` instead of deprecated `nix profile install`. (#PR)
 
 ### Changed
 
