@@ -104,7 +104,7 @@ brew install acevif/tap/ignore
 Install to your profile:
 
 ```sh
-nix profile install github:acevif/ignore
+nix profile add github:acevif/ignore
 ```
 
 Use in your devShell (flake input):
@@ -142,8 +142,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, guidelines, and ho
 
 ## Document status
 
-- Last updated: 2026-01-25
-- Last reviewed: 2026-01-22
+- Last updated: 2026-04-03
+- Last reviewed: 2026-04-03
 
 <details>
 <summary>Date definitions</summary>
