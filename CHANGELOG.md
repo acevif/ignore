@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Migrate Nix flake configuration from flake-utils to flake-parts. (#52)
 - Add autonomy and communication guidance for AI agents. (#42)
 - Document `nix develop` devShell usage in contributing guide. (#43)
+- Split the Nix devShell into `nix/devshell/flake.nix`, keep the root package flake on `flake-parts`, and source coding agents from `llm-agents.nix`. (#56)
 - Refine one-line descriptions (README, Nix flake metadata, Homebrew formula, and GitHub repository description). (#43)
 - Update README examples to use `nix profile add` instead of deprecated `nix profile install`. (#57)
 
